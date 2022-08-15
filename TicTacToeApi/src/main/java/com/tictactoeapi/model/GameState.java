@@ -1,4 +1,4 @@
-package com.admiral.model;
+package com.tictactoeapi.model;
 
 /**
  * Represents the possible states that this game can be in

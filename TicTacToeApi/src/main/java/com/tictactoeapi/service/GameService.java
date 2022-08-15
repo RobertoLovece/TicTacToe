@@ -1,6 +1,6 @@
-package com.admiral.service;
+package com.tictactoeapi.service;
 
-import com.admiral.model.CreateGameResponse;
+import com.tictactoeapi.model.CreateGameResponse;
 
 /*
  * We should define the public facing methods to interact with our game here and implement them in the implementation

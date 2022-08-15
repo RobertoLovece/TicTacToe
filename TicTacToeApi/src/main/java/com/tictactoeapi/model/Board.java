@@ -1,4 +1,4 @@
-package com.admiral.model;
+package com.tictactoeapi.model;
 
 /**
  * Represents the board in a game of tic tac toe and exposes methods to allow markers to be placed on the board and also

@@ -1,7 +1,7 @@
-package com.admiral.service;
+package com.tictactoeapi.service;
 
-import com.admiral.controller.GameController;
-import com.admiral.model.CreateGameResponse;
+import com.tictactoeapi.controller.GameController;
+import com.tictactoeapi.model.CreateGameResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

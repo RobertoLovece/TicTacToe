@@ -1,7 +1,7 @@
-package com.admiral.controller;
+package com.tictactoeapi.controller;
 
-import com.admiral.model.Board;
-import com.admiral.model.GameState;
+import com.tictactoeapi.model.Board;
+import com.tictactoeapi.model.GameState;
 
 import java.util.UUID;
 

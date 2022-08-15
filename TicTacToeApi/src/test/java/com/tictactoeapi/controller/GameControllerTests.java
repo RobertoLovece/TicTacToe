@@ -1,6 +1,6 @@
-package com.admiral.controller;
+package com.tictactoeapi.controller;
 
-import com.admiral.model.GameState;
+import com.tictactoeapi.model.GameState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

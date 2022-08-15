@@ -1,19 +1,21 @@
-package com.admiral.configuration;
-
-/*
- * When we enable Swagger Documentation, this is where we will need to configure and enable swagger
- */
+package com.tictactoeapi;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-public class SwaggerConfiguration {
+@SpringBootApplication
+public class TicTacToeApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(TicTacToeApplication.class, args);
+    }
 
     @Bean
-    public OpenAPI productOpenApi() {
+    public OpenAPI ticTacTieOpenApi() {
         return new OpenAPI()
                 .components(new Components())
                 .info(new Info().title("TicTacToe API")
