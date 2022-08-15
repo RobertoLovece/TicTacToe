@@ -1,5 +1,7 @@
 package com.tictactoeapi.model;
 
+import java.util.Arrays;
+
 /**
  * Represents the board in a game of tic tac toe and exposes methods to allow markers to be placed on the board and also
  * functionality to check it's self to see if the game has been won or drawn.
@@ -102,4 +104,7 @@ public class Board {
         }
     }
 
+    public String[][] getGrid() {
+        return grid;
+    }
 }

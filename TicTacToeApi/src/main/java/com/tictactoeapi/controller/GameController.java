@@ -2,7 +2,11 @@ package com.tictactoeapi.controller;
 
 import com.tictactoeapi.model.Board;
 import com.tictactoeapi.model.GameState;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -30,6 +34,7 @@ public class GameController {
      * Get the game board object for this game which includes the board its-self and functionality
      * @return the game board object
      */
+    @Schema
     public Board getBoard() {
         return board;
     }
@@ -89,5 +94,29 @@ public class GameController {
      */
     public UUID getGameId() {
         return gameId;
+    }
+
+    public List<String> drawBoard() {
+        List<String> boardList = new ArrayList<>();
+
+        for (String[] row : board.getGrid()) {
+
+            StringBuilder sb = new StringBuilder();
+
+            for (String cell: row) {
+
+                if (cell != null) {
+                    sb.append(cell);
+                } else {
+                    sb.append("-");
+                }
+
+            }
+
+            boardList.add(sb.toString());
+
+        }
+
+        return boardList;
     }
 }
