@@ -226,4 +226,15 @@ public class GameControllerTests {
         assertEquals(GameState.PLAYER_1_WIN, gameController.getGameState());
     }
 
+    @Test
+    void playerTwoWins() {
+        gameController.makeMove(1,1);
+        gameController.makeMove(2,2 );
+        gameController.makeMove(1,2 );
+        gameController.makeMove(1,3 );
+        gameController.makeMove(2,1 );
+        gameController.makeMove(3,1 );
+        assertEquals(GameState.PLAYER_2_WIN, gameController.getGameState());
+    }
+
 }
