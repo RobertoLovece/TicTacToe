@@ -25,6 +25,4 @@ public class GameRestController {
         return new ResponseEntity<>(createGameResponse, HttpStatus.CREATED);
     }
 
-
-
 }

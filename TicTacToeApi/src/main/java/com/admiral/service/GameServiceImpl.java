@@ -25,6 +25,4 @@ public class GameServiceImpl implements GameService {
         return new CreateGameResponse(gameController);
     }
 
-
-
 }
