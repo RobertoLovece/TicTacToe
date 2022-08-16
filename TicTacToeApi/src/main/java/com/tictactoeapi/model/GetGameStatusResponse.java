@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import java.util.UUID;
 
+@Schema(name = "Game Status Response")
 public class GetGameStatusResponse {
 
     @Schema(description = "TicTacToe game UUID", example = "3cb38a63-ee31-48f7-b937-4631b028c280")
