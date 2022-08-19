@@ -4,6 +4,7 @@ import com.tictactoeapi.model.CreateGameResponse;
 import com.tictactoeapi.model.GetGameStatusResponse;
 import com.tictactoeapi.service.GameService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -56,7 +57,7 @@ public class GameRestController {
             @ApiResponse(responseCode = "204", description = "No TicTacToe game matches the UUID", content = @Content)
     })
     @GetMapping(path = "/GetGameStatus/{gameId}")
-    public ResponseEntity<GetGameStatusResponse> getGameStatus(@PathVariable("gameId") String gameId) {
+    public ResponseEntity<GetGameStatusResponse> getGameStatus(@Parameter(description = "ID of game status to return", required = true) @PathVariable("gameId") String gameId) {
         GetGameStatusResponse getGameStatusResponse = null;
         try {
             getGameStatusResponse = gameService.getGameStatus(UUID.fromString(gameId));
@@ -77,7 +78,7 @@ public class GameRestController {
             @ApiResponse(responseCode = "400", description = "Invalid UUID", content = @Content)
     })
     @DeleteMapping(path = "/DestroyGame/{gameId}")
-    public ResponseEntity<HttpStatus> destroyGame(@PathVariable("gameId") String gameId) {
+    public ResponseEntity<HttpStatus> destroyGame(@Parameter(description = "ID of game to destroy", required = true) @PathVariable("gameId") String gameId) {
 
         UUID uuid;
 
@@ -102,12 +103,15 @@ public class GameRestController {
             @ApiResponse(responseCode = "400", description = "Invalid UUID format", content = @Content),
     })
     @PutMapping(path = "/MakeMove/{gameId}/{xPos}/{yPos}")
-    public ResponseEntity<GetGameStatusResponse> makeMove(@PathVariable("gameId") String gameId, @PathVariable("xPos") int xPos, @PathVariable("yPos") int yPos) {
+    public ResponseEntity<GetGameStatusResponse> makeMove(
+            @Parameter(description = "ID of game to make move", required = true) @PathVariable("gameId") String gameId,
+            @Parameter(description = "x-position of move between 1-3", required = true) @PathVariable("xPos") int xPos,
+            @Parameter(description = "y-position of move between 1-3", required = true) @PathVariable("yPos") int yPos)
+    {
         GetGameStatusResponse response;
         try {
             response = gameService.makeMove(gameId, xPos, yPos);
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
