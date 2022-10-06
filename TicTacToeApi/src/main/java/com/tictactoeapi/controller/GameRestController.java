@@ -56,8 +56,9 @@ public class GameRestController {
             @ApiResponse(responseCode = "400", description = "Invalid UUID format", content = @Content),
             @ApiResponse(responseCode = "204", description = "No TicTacToe game matches the UUID", content = @Content)
     })
-    @GetMapping(path = "/GetGameStatus/{gameId}")
-    public ResponseEntity<GetGameStatusResponse> getGameStatus(@Parameter(description = "ID of game status to return", required = true) @PathVariable("gameId") String gameId) {
+    @GetMapping(path = "/GetGameStatus")
+    public ResponseEntity<GetGameStatusResponse> getGameStatus(@Parameter(description = "ID of game status to return", required = true)
+            @RequestParam(name = "id") String gameId) {
         GetGameStatusResponse getGameStatusResponse = null;
         try {
             getGameStatusResponse = gameService.getGameStatus(UUID.fromString(gameId));
